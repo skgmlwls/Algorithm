@@ -1,6 +1,5 @@
-class DoublyLinkedList<T> {
+class DoublyLinkedList_Test<T> {
     var head : Node<T>? = null
-    var tail : Node<T>? = null
     var count = 0
 
     fun printAll() {
@@ -30,16 +29,8 @@ class DoublyLinkedList<T> {
         var newNode = Node(data)
 
         if (index == 0) {
-            newNode.next = this.head
-            if(this.head != null) {
-                this.head?.prev = newNode
-            }
+            newNode.next = head
             head = newNode
-        }
-        else if (index == this.count) {
-            newNode.next = null
-            newNode.prev = this.tail
-            this.tail?.next = newNode
         }
         else {
             var currentNode = head
@@ -49,15 +40,10 @@ class DoublyLinkedList<T> {
             }
 
             newNode.next = currentNode?.next
-            newNode.prev = currentNode
             currentNode?.next = newNode
-            newNode.next?.prev = newNode
 
         }
-        if (newNode.next == null) {
-            this.tail = newNode
-        }
-        this.count++
+        count++
     }
 
     fun insertLast(data:T) {
@@ -71,26 +57,8 @@ class DoublyLinkedList<T> {
         var deleteNode : Node<T>?
 
         if (index == 0) {
-            deleteNode = this.head
-            
-            // 데이터가 하나만 들어있는 경우
-            if(head?.next == null) {
-                this.head?.next = null
-                this.tail = null
-            }
-            // 여러개의 데이터가 들어있는 경우
-            else {
-                this.head = this.head?.next
-                this.head?.prev = null
-                // 이러면 더이상 원래 head 였던 데이터에 접근할 수 없기 때문에 가비지컬렉터에 의해서 메모리에서 삭제됨
-            }
-            
-            this.head = this.head?.next
-        }
-        else if (index == this.count - 1) {
-            deleteNode = this.tail
-            this.tail?.prev?.next = null
-            this.tail = this.tail?.prev
+            deleteNode = head
+            head = head?.next
         }
         else {
             var currentNode = head
@@ -101,7 +69,6 @@ class DoublyLinkedList<T> {
 
             deleteNode = currentNode?.next
             currentNode?.next = currentNode?.next?.next
-            currentNode?.next?.prev = currentNode
         }
 
         count--
@@ -129,5 +96,7 @@ class DoublyLinkedList<T> {
         return currentNode
 
     }
+
+
 
 }

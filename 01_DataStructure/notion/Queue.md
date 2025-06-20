@@ -1,6 +1,6 @@
 # 🚚 Queue (큐)
 
-**큐(Queue)**는 **먼저 들어간 데이터가 먼저 나오는** **FIFO(First In, First Out)** 규칙을 따르는 선형 자료구조입니다.
+큐(Queue)는 **먼저 들어간 데이터가 먼저 나오는** **FIFO(First In, First Out)** 규칙을 따르는 선형 자료구조입니다.
 
 ---
 
