@@ -1,7 +1,6 @@
 import java.util.Scanner
 
 fun main(){
-
     val scanner = Scanner(System.`in`)
 
     // 1) 문자열 뒤집기
@@ -10,9 +9,7 @@ fun main(){
     println(solution1(text))
     println(solution2(text))
 
-
 }
-
 
 fun solution1(s: String): String {
     val strList = mutableListOf<String>()
